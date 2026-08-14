@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Font Import for Stranger Things font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ITC+Benguiat&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stranger Things Seasons Ranked</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Animated Dust Specks Background Canvas -->
+<canvas id="particles"></canvas>
+
+<main>
+
+<!-- Stranger Things Logo Wrapper -->
+<div class="stranger-logo">
+  <div class="line top-line"></div>
+  <h1>
+    <span class="big">S</span>TRANGER <span class="big">T</span>HINGS
+  </h1>
+  
+  <div class="subtitle-row">
+    <div class="side-line"></div>
+    <div class="subtitle">
+      <span class="big">S</span>EASONS RANKE<span class="big">D</span>
+    </div>
+    <div class="side-line"></div>
+  </div>
+</div>
+
+<h2>Fifth Place: Stranger Things Season 5</h2>
+<p1>This season was good for like the first four episodes, but then after that, it was just so dry and buns. Also tell me why when the demogorgon fights against the soldiers with flame throwers and guns, they get killed instantly, but when mikes middle age mom fights the demogorgon with a broken glass bottle, she 200 pumps the demogorgon back into the upside down. Also theres like 50 main characters because all of them have plot armor because the writers are too scared to kill them off or else the fan base will be upset, even though it would cause more suspense and not feel like a kids show. Also the way they explain the plans is over done too much with the objects they use as example. The finale was mid, none of the main characters died, and they didn't even conform that eleven died or not, they just left it to the viewers imagination. The final boss was so easy to defeat that it got defeated by a couple of high schoolers, the epilogue had some pot holes, like mikes mom should have scars from the demogorgon attack, but at the graduation she had zero scars. The last like 20 minutes or something of the finale were good. But the whole season, I would give like a 5 out of 10. </p1>
+
+<h2>Fourth Place: Stranger Things Season 1</h2>
+<p1>It was boring, the first episode was boring, it has nice nostalgia, but the whole season was just boring, also the finale was kinda boring too, just no my type of show, but it got less boring after that, so that was good. I would give it like a 6 out of 10.</p1>
+
+<h2>Third Place: Stranger Things Season 2</h2>
+<p3>This season was way better than season 1, better characters, the will and his day dreams in the upside down were scary and suspenseful. The hawkins lab take over was very scary, also the kids fighting against the demogorgon dogs was entertaining. I would give it a solid 7 out of 10.</p3>
+
+<h2>Second Place: Stranger Things Season 4</h2>
+<p3>This season was so good, the 80s music was very good, the new characters were fun, and hopper being in russia and escaping in the last episode was very entertaining to watch. Also eleven getting her powers back was very nice to watch. This season is just as good as the one in first place, I would give this season a 8.5 out of 10.</p3>
+
+<h2>First Place: Stranger Things Season 3</h2>
+<p3>This season was so peak, it had the best storylines and character development. The monsters were way scarier and more gory than any of the past seasons, also I really like murray in that season, he was really sarcastic and funny. I liked the underground russian base, this season is just so good and its very rewatchable. I would give this season a 11 out of 10.</p3>
+
+</main>
+
+<!-- JavaScript to animate floating dust specks -->
+<script>
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const particles = [];
+  const particleCount = 70;
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.8 + 0.3,
+      alpha: Math.random() * 0.7 + 0.1,
+      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: (Math.random() - 0.5) * 0.3
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
